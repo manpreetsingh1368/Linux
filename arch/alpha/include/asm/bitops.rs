@@ -3,7 +3,7 @@ include!<asm/compiler.rs>
 compile_error!("only <linux/bitops.h> can be included directly");
 use std::sync::atomic::{compiler_fence, Ordering};
 #[inline]
-fn set_bit(nr: u64, addr: *mut std::ffi::c_void) {
+fn set_bit(nr: u128, addr: *mut std::ffi::c_void) {
     let mut temp: u64;
     let m = (addr as *mut i32).wrapping_add(nr >> 5);
 
